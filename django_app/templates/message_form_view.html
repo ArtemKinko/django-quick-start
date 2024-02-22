@@ -1,0 +1,38 @@
+
+<head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+    <div>
+        <div class="position-absolute top-50 start-50 translate-middle hover main-div"
+             style="overflow-y: scroll; max-height: 80%; min-width: 50%;">
+            <h1 class="display-5 fw-bold text-center">Отправить сообщение</h1>
+            <form enctype="multipart/form-data" class="form-control container" id="FormMain" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="dt_upload_element" class="form-label">
+                        Дата отправления:
+                    </label>
+                    <input class="form-control" required type="date" min="2024-01-01" id="dt_upload_element" name="{{ form.dt_upload_element.html_name }}">
+                </div>
+                <div>
+                    <label for="text_element" class="form-label">
+                        Сообщение:
+                    </label>
+                    <textarea class="form-control" required name="{{ form.text_element.html_name }}" id="text_element"></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <input
+                            type="submit"
+                            class="w-100 btn btn-sm btn-primary"
+                            id="submitFormMain"
+                            value="Отправить">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

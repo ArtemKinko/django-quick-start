@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from message.sent_message_view import MessageSentView
+from message.message_view import MessageView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', MessageView.as_view(), name='send_message'),
+    path('message_view', MessageSentView.as_view(), name='message_view')
+
 ]
